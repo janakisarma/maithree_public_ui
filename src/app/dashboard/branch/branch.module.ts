@@ -5,6 +5,7 @@ import { TeachersComponent } from './teachers/teachers.component';
 import { ProductsComponent } from './products/products.component';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { AlertModule } from 'ngx-bootstrap';
+import { StudentsComponent } from './students/students.component';
 
 
 @NgModule({
@@ -14,7 +15,7 @@ import { AlertModule } from 'ngx-bootstrap';
     ReactiveFormsModule,
     AlertModule.forRoot()
   ],
-  declarations: [BranchSelectorComponent, TeachersComponent, ProductsComponent],
+  declarations: [BranchSelectorComponent, TeachersComponent, ProductsComponent, StudentsComponent],
     providers: [],
 
 })

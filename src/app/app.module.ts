@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppBootstrapModule } from './app.bootstrap.module';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpModule } from '@angular/http';
@@ -13,6 +13,10 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 
+import { MatFormFieldModule } from '@angular/material';
+import { MatInputModule } from '@angular/material';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
 /*Feature modules*/
 
 import {DashboardModule} from "./dashboard/dashboard.module"
@@ -22,6 +26,7 @@ import { ReportModule } from './dashboard/report/report.module';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { AdminServicesModule } from './admin-services/admin-services.module';
 import { AdminLoginModule } from './admin-login/admin-login.module';
+import { UiModule } from './ui/ui.module';
 
  
 /**Services **/
@@ -41,10 +46,6 @@ export class MyHammerConfig extends HammerGestureConfig  {
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    BreadcrumbComponent
-  ],
   imports: [
     BrowserModule,
     HttpModule,
@@ -57,14 +58,24 @@ export class MyHammerConfig extends HammerGestureConfig  {
     JobsModule,
     ReportModule,
     FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCheckboxModule,
     AuthenticationModule,
     NgbModule.forRoot(),
     NgDragDropModule.forRoot(),
     BsDatepickerModule.forRoot(),
     AdminServicesModule,
     AdminLoginModule
-
   ],
+  exports:[
+    MatCheckboxModule
+  ],
+  declarations: [
+    AppComponent,
+    BreadcrumbComponent
+  ],
+
   providers: [AppService, UrlService,  NotificationService, ReportService, { provide: HAMMER_GESTURE_CONFIG, useClass: MyHammerConfig } ,
               {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true,}],
   bootstrap: [AppComponent]

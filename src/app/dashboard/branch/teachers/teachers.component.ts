@@ -42,7 +42,7 @@ export class TeachersComponent implements OnInit {
     saveTecherInfo() {
         this.service.setDataInBrowser(this.selectedTeacher,'selectedTeacher');
         this.service.setDataInBrowser(this.branchId,'selectedBranch');
-        this.router.navigateByUrl('/dashboard/branch/'+this.branchId+'/get-products')
+        this.router.navigateByUrl('/dashboard/branch/'+this.branchId+'/get-students')
     }
 
 }

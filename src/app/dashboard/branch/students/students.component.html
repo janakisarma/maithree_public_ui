@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-sm-3">
+            <table class="table  table-bordered">
+                <thead>
+                    <tr>
+                        <th>Students</th>
+                    </tr>
+                </thead>
+                    <tr *ngFor="let field of studentsData.students; index as i" style="display:flex" [style.background]="i==selectedStudent ? 'bisque' : null">
+                        <td style="width:100%" (click)="getProducts(i)">
+                            <label>{{field.name}}</label>
+                        </td>
+                    </tr>
+            </table>
+    </div>
+    <div class="col-sm-3" *ngIf="selectedStudent != undefined">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Products</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let field of studentsData.students[selectedStudent].products; index as i" style="display:flex"
+                    [style.background]="i==selectedProduct ? 'bisque' : null">
+                        <td style="width:100%" (click)="getTasks(i)">
+                            <label>{{field.name}}</label>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </div>
+    <div class="col-sm-6" *ngIf="selectedProduct != undefined">
+            <table class="table  table-bordered">
+                <thead>
+                    <tr>
+                        <th style="width:5%;"></th>
+                        <th  style="width:85%;">Task</th>
+                        <th  style="width:5%;text-align: center;margin: 0px;padding: 0px;">Target <span style="font-size: 9px;text-align: center;">(approx.)</span></th>
+                        <th  style="width:5%;text-align: center;">Completed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let field of studentsData.students[selectedStudent].products[selectedProduct].tasks;">
+                        <td  style="width:5%;"><input class="checkbox-style" [(ngModel)]="field.assigned"  type="checkbox"/></td>
+                        <td  style="width:85%;"><label>{{field.name}}</label></td>
+                        <td  style="width:5%;text-align: center;"><input type="text" style="width:45px;text-align: center;" [(ngModel)]="field.target"/></td>
+                        <td  style="width:5%;text-align: center;"><input type="text" style="width:45px;text-align: center;" [(ngModel)]="field.completed"/></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="col-sm-12" style="text-align: right">
+                <button class="btn btn-primary" (click)="submitSave()">Save</button>
+                <button class="btn btn-primary" (click)="cancel()">Cancel</button>
+            </div>
+    </div>
+</div>
+    

@@ -8,7 +8,7 @@ import { TargetConfigurationComponent } from './target-configuration/target-conf
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddBranchComponent } from './add-branch/add-branch.component';
 import { AddProductComponent } from './add-product/add-product.component';
-import { AddStudentComponent } from './add-student/add-student.component'; 
+import { AddStudentComponent } from './add-student/add-student.component';
 
 export const routes: Routes = [
         { path: 'admin-dashboard', component: AdminServicesComponent, 

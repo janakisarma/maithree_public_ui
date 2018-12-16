@@ -16,11 +16,11 @@ export class UrlService {
 	}
 
 	getBaseUrl() {
-		return this.urlList['baseUrl'];
+		return this.urlList['localBaseUrl'];
 	}
 
 	getBaseUrlForImages(){
-		return this.urlList['baseImageUrl'];
+		return this.urlList['localBaseImageUrl'];
 	}
 
 
